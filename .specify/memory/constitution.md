@@ -1,50 +1,39 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# AgentLoft Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Transparency Over Magic
+Every agent action is visible, inspectable, and reversible. AgentLoft SHALL render every tool call, file change, and permission request as a visual component. No hidden agent behavior. No black-box outputs.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Bring Your Own Keys
+AgentLoft SHALL NOT require any AgentLoft-specific subscription or payment to use core features. Users connect their own API keys and subscriptions. Zero lock-in. Zero AgentLoft-managed billing for core agent functionality.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Local-First
+All memory, context, and session data SHALL be stored on the user's machine by default. No data SHALL be sent to AgentLoft servers without explicit opt-in. LanceDB, SQLite, and filesystem storage only. Telemetry MUST be opt-in.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Model-Agnostic
+AgentLoft SHALL treat all AI providers equally. Claude Code, Codex CLI, Antigravity CLI, Ollama, Groq, and any OpenAI-compatible endpoint SHALL receive first-class support. No provider SHALL receive exclusive features unavailable to others.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Community-Driven
+The marketplace and plugin system SHALL make users into contributors. Skills, MCPs, and plugins SHALL be publishable by anyone via static registry PR. Revenue share SHALL be available for premium items (v3). No proprietary marketplace gatekeeping.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Security Requirements
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### VI. Sandboxed Extensions
+All plugins SHALL execute in a sandbox (Web Worker v1.1, WASM v2). No direct filesystem or network access without declared permissions and user approval.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### VII. Secret Protection
+All API keys SHALL be stored in OS keychain, never in plaintext files. Automatic secret scanning SHALL run before every API call.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Performance Standards
+
+### VIII. Binary Size
+Compressed installer SHALL be <25MB. Total installed size SHALL be <200MB. No external runtime dependencies (Node.js, Python).
+
+### IX. Responsiveness
+Cold start SHALL be <2s (macOS), <3s (Windows NVMe). Tool call interception overhead SHALL be <5ms. Memory retrieval SHALL be <100ms.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+Constitution supersedes all other project practices. Amendments require PR with rationale, team review, and migration plan for affected code. All plan gates SHALL verify constitution compliance before Phase 0 research.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-05-25 | **Last Amended**: 2026-05-25

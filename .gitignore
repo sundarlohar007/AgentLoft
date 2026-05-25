@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+src-tauri/target/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Rust
+*.rs.bk
+*.rlib
+*.prof*
+
+# Logs
+*.log
+logs/
+
+# Tauri
+src-tauri/gen/
+
+# AgentLoft local data (per project)
+.agentloft/
+.claude/
+
+# Coverage
+coverage/

@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mint: #7cc7a0;
+  --color-mint-hover: #6ab890;
+  --color-canvas-dark: #0d1117;
+  --color-canvas-mid: #161b22;
+  --color-glass-bg: rgba(22, 27, 34, 0.6);
+  --color-glass-border: rgba(124, 199, 160, 0.08);
+  --color-text-primary: #c9d1d9;
+  --color-text-secondary: #8b949e;
+  --color-text-muted: #484f58;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%; width: 100%; overflow: hidden;
+  background: var(--color-canvas-dark);
+  color: var(--color-text-primary);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: 14px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(124, 199, 160, 0.15); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(124, 199, 160, 0.3); }
+
+.glass-heavy { background: rgba(22,27,34,0.6); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); }
+.glass-medium { background: rgba(22,27,34,0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.glass-light { background: rgba(22,27,34,0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.glass-subtle { background: rgba(22,27,34,0.3); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+
+@keyframes spring-in { 0% { transform: scale(0.95); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes dissolve-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes slide-up { 0% { transform: translateY(8px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+.animate-spring { animation: spring-in 200ms ease-out; }
+.animate-dissolve { animation: dissolve-in 150ms ease-out; }
+.animate-slide-up { animation: slide-up 200ms ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
