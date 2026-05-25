@@ -1,0 +1,13 @@
+pub mod session;
+pub mod process;
+pub mod memory;
+pub mod cost;
+pub mod marketplace;
+pub mod cli_detect;
+pub mod profiles;
+pub mod security;
+pub mod zero_waste;
+pub mod mcp_hub;
+pub mod plugins;
+pub mod pricing;
+pub mod files;

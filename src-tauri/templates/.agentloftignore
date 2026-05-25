@@ -1,0 +1,22 @@
+# AgentLoft Ignore — files never sent to any model API
+node_modules/
+vendor/
+.env
+.env.*
+*.key
+*.pem
+*.crt
+secrets/
+credentials.*
+*.zip
+*.tar.gz
+*.mp4
+dist/
+build/
+target/
+__pycache__/
+*.pyc
+.git/
+.vscode/
+.idea/
+.DS_Store

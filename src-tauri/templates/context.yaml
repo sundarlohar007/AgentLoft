@@ -1,0 +1,20 @@
+# AgentLoft Project Context
+# Auto-generated on project open. Edit to customize agent behavior.
+
+name: ""
+description: ""
+
+protected_paths:
+  - ".env"
+  - ".env.*"
+  - "*.key"
+  - "*.pem"
+  - "secrets/"
+  - "credentials.*"
+
+constraints:
+  - "Never modify files in protected_paths"
+  - "Ask before running destructive commands"
+
+memory_budget_tokens: 4000
+suggested_mcps: []

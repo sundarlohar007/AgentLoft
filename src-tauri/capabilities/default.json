@@ -1,0 +1,13 @@
+{
+  "identifier": "default",
+  "description": "Default capability for AgentLoft",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "shell:allow-open",
+    "fs:default",
+    "dialog:default",
+    "clipboard-manager:default",
+    "global-shortcut:default"
+  ]
+}
