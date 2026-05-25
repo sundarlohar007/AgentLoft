@@ -2,8 +2,8 @@ import React from "react";
 
 // Glass panel with blur, border, rounded corners per PRD S20
 export function GlassPanel({
-  children, className = "", blur = "medium", rounded = "panel",
-}: { children: React.ReactNode; className?: string; blur?: "heavy" | "medium" | "light" | "subtle"; rounded?: "badge" | "button" | "panel" }) {
+  children, className = "", blur = "medium", rounded = "panel", ...rest
+}: { children: React.ReactNode; className?: string; blur?: "heavy" | "medium" | "light" | "subtle"; rounded?: "badge" | "button" | "panel" } & React.HTMLAttributes<HTMLDivElement>) {
   const blurMap = { heavy: 28, medium: 20, light: 10, subtle: 4 };
   const roundedMap = { badge: 4, button: 6, panel: 10 };
 
@@ -17,6 +17,7 @@ export function GlassPanel({
         borderRadius: `${roundedMap[rounded]}px`,
         borderColor: "rgba(124, 199, 160, 0.08)",
       }}
+      {...rest}
     >
       {children}
     </div>

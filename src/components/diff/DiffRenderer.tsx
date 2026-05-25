@@ -8,12 +8,10 @@ interface DiffHunk {
 
 interface Props {
   path: string;
-  before: string;
-  after: string;
   hunks: DiffHunk[];
 }
 
-export function MonacoDiffRenderer({ path, before, after, hunks }: Props) {
+export function MonacoDiffRenderer({ path, hunks }: Props) {
   const [acceptedHunks, setAcceptedHunks] = useState<Set<number>>(new Set());
 
   const toggleHunk = (index: number) => {

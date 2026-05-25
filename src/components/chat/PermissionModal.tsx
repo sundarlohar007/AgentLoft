@@ -18,8 +18,8 @@ export function PermissionModal({ request, onApprove, onReject }: Props) {
     return () => window.removeEventListener("keydown", handler);
   }, [onApprove, onReject]);
 
-  const riskColors: Record<string, string> = {
-    low: "#3fb950", medium: "#d29922", high: "#f85149", critical: "#f85149",
+  const riskColors: Record<string, "green" | "yellow" | "red" | "default"> = {
+    low: "green", medium: "yellow", high: "red", critical: "red",
   };
 
   return (
@@ -31,7 +31,7 @@ export function PermissionModal({ request, onApprove, onReject }: Props) {
         <div className="mt-3 space-y-2 text-sm text-[#8b949e]">
           <div className="flex items-center gap-2">
             <span className="text-[#c9d1d9] font-medium">{request.tool_type}</span>
-            <GlassBadge color={riskColors[request.risk_level] as keyof typeof riskColors extends infer K ? K : never}>
+            <GlassBadge color={riskColors[request.risk_level]}>
               {request.risk_level}
             </GlassBadge>
           </div>

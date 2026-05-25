@@ -1,4 +1,4 @@
-import { GlassPanel, GlassInput, GlassBadge } from "@/components/shared/primitives";
+import { GlassPanel, GlassBadge } from "@/components/shared/primitives";
 import { useState } from "react";
 
 interface SessionSummary {

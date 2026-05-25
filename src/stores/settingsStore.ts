@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import type { Setting } from "@/lib/types";
 
-type ExpertiseLevel = "guided" | "standard" | "expert";
+export type ExpertiseLevel = "guided" | "standard" | "expert";
 
 interface SettingsState {
   settings: Map<string, Setting>;
@@ -15,9 +15,6 @@ interface SettingsState {
   setExpertise: (level: ExpertiseLevel) => void;
   setCostCalmMode: (enabled: boolean) => void;
 }
-
-// Scope inheritance: Session > Project > Global
-const scopePriority: Record<string, number> = { global: 0, project: 1, session: 2 };
 
 export const useSettingsStore = create<SettingsState>((set, get) => ({
   settings: new Map(),

@@ -7,16 +7,16 @@ interface SessionFolder {
 interface Props {
   folders: SessionFolder[];
   onCreateFolder: (name: string) => void;
-  onMoveToFolder: (sessionId: string, folderId: string) => void;
-  onArchive: (sessionId: string) => void;
+  _onMoveToFolder: (sessionId: string, folderId: string) => void;
+  _onArchive: (sessionId: string) => void;
   onBulkAction: (sessionIds: string[], action: "tag" | "move" | "archive" | "export" | "delete") => void;
 }
 
 const TAG_COLORS = ["#f85149", "#d29922", "#3fb950", "#58a6ff", "#bc8cff", "#ff80bf", "#79c0ff", "#7cc7a0"];
 
-export function SessionOrganization({ folders, onCreateFolder, onMoveToFolder, onArchive, onBulkAction }: Props) {
+export function SessionOrganization({ folders, onCreateFolder, onBulkAction }: Props) {
   const [newFolderName, setNewFolderName] = useState("");
-  const [selectedSessions, setSelectedSessions] = useState<Set<string>>(new Set());
+  const [selectedSessions] = useState<Set<string>>(new Set());
 
   return (
     <div className="p-3 text-xs space-y-3">

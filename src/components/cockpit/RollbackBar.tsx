@@ -1,4 +1,4 @@
-import { GlassButton, GlassBadge } from "@/components/shared/primitives";
+import { GlassButton } from "@/components/shared/primitives";
 import type { Checkpoint } from "@/lib/types";
 
 interface Props {

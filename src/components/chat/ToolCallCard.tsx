@@ -48,14 +48,14 @@ export function ToolCallCard({ toolCall }: { toolCall: ToolCall }) {
 
       {/* Input summary */}
       <div className="mt-1 text-[#8b949e] truncate">
-        {toolCall.type === "write_file" && toolCall.input?.path && (
-          <>Path: {String(toolCall.input.path)}</>
+        {toolCall.type === "write_file" && typeof toolCall.input?.path === 'string' && (
+          <>Path: {toolCall.input.path as string}</>
         )}
-        {toolCall.type === "bash" && toolCall.input?.command && (
-          <>$ {String(toolCall.input.command).slice(0, 80)}</>
+        {toolCall.type === "bash" && typeof toolCall.input?.command === 'string' && (
+          <>$ {(toolCall.input.command as string).slice(0, 80)}</>
         )}
-        {toolCall.type === "read_file" && toolCall.input?.path && (
-          <>Reading: {String(toolCall.input.path)}</>
+        {toolCall.type === "read_file" && typeof toolCall.input?.path === 'string' && (
+          <>Reading: {toolCall.input.path as string}</>
         )}
       </div>
 

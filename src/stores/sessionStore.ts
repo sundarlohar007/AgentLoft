@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { Session, Message, ToolCall, Checkpoint, ContextSnapshot } from "@/lib/types";
+import type { Session, Message, ToolCall, Checkpoint } from "@/lib/types";
 
 interface SessionState {
   activeSessionId: string | null;

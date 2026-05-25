@@ -1,4 +1,4 @@
-import { GlassPanel, GlassButton, GlassInput } from "@/components/shared/primitives";
+import { GlassPanel, GlassButton } from "@/components/shared/primitives";
 import { useState, useEffect } from "react";
 import type { MemoryEntry } from "@/lib/types";
 

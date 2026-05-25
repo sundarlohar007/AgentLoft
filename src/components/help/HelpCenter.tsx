@@ -1,4 +1,4 @@
-import { GlassPanel, GlassInput } from "@/components/shared/primitives";
+import { GlassPanel } from "@/components/shared/primitives";
 import { useState } from "react";
 
 const HELP_SECTIONS = {

@@ -1,4 +1,4 @@
-import { GlassButton, GlassInput } from "@/components/shared/primitives";
+import { GlassButton } from "@/components/shared/primitives";
 import { useSessionStore } from "@/stores/sessionStore";
 import { createSession, sendMessage } from "@/lib/tauri";
 import { useState } from "react";
@@ -94,7 +94,7 @@ export function ChatInput() {
             id="file-attach"
             className="hidden"
             multiple
-            onChange={(e) => { /* attachment handling */ }}
+            onChange={() => {}}
           />
           <label
             htmlFor="file-attach"

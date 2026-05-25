@@ -1,4 +1,4 @@
-import { GlassPanel, GlassButton, GlassBadge } from "@/components/shared/primitives";
+import { GlassPanel, GlassButton } from "@/components/shared/primitives";
 import { useSettingsStore } from "@/stores/settingsStore";
 
 interface TaskSummary {

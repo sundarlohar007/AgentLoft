@@ -25,7 +25,7 @@ export function CockpitLayout() {
     { id: "tools", label: "Tool Feed", component: <ToolCallFeed /> },
     { id: "blast", label: "Blast Radius", component: <BlastRadiusPreview /> },
     { id: "intent", label: "Intent Gap", component: <IntentGapDetector /> },
-    { id: "rollback", label: "Rollback", component: <RollbackBar /> },
+    { id: "rollback", label: "Rollback", component: <RollbackBar checkpoints={[]} onRestore={() => {}} /> },
     { id: "regression", label: "Regression Shield", component: <RegressionShield /> },
   ];
 

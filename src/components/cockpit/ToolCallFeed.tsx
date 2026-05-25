@@ -1,5 +1,4 @@
 import { useSessionStore } from "@/stores/sessionStore";
-import { GlassBadge } from "@/components/shared/primitives";
 
 const STATUS_EMOJI: Record<string, string> = {
   pending: "\u{23F3}", approved: "\u{2705}", running: "\u{26A1}",

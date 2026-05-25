@@ -5,7 +5,7 @@ import { ChatInput } from "./ChatInput";
 import { useEffect, useRef } from "react";
 
 export function ChatPanel() {
-  const { messages, toolCalls, activeSessionId } = useSessionStore();
+  const { messages, toolCalls } = useSessionStore();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

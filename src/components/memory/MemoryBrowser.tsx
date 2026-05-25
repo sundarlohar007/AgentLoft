@@ -1,4 +1,4 @@
-import { GlassPanel, GlassInput, GlassBadge } from "@/components/shared/primitives";
+import { GlassPanel, GlassBadge } from "@/components/shared/primitives";
 import { useState } from "react";
 import type { MemoryEntry } from "@/lib/types";
 
@@ -17,7 +17,7 @@ interface Props {
 export function MemoryBrowser({ memories, onDelete, onEdit }: Props) {
   const [search, setSearch] = useState("");
   const [scopeFilter, setScopeFilter] = useState<string | null>(null);
-  const [categoryFilter, setCategoryFilter] = useState<string | null>(null);
+  const [categoryFilter, _setCategoryFilter] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<"confidence" | "freshness" | "date" | "use_count">("confidence");
 
   const filtered = memories
