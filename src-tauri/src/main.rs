@@ -69,6 +69,20 @@ pub fn run() {
             commands::cli_detect::detect_installed_clis,
             commands::profiles::list_profiles,
             commands::profiles::get_profile,
+            commands::mcp_hub::list_mcps,
+            commands::mcp_hub::install_mcp,
+            commands::mcp_hub::uninstall_mcp,
+            commands::mcp_hub::start_mcp,
+            commands::mcp_hub::stop_mcp,
+            commands::mcp_hub::get_mcp_health,
+            commands::plugins::list_plugins,
+            commands::plugins::install_plugin,
+            commands::plugins::uninstall_plugin,
+            commands::plugins::toggle_plugin,
+            commands::security::get_network_audit_log,
+            commands::security::scan_content_for_secrets,
+            commands::security::record_network_audit_entry,
+            commands::security::export_network_audit_csv,
         ])
         .run(tauri::generate_context!())
         .expect("error while running AgentLoft");
