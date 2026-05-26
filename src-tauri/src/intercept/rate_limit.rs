@@ -53,11 +53,12 @@ impl RateLimitManager {
         };
 
         if is_rate_limited {
+            let retry_after = self.parse_retry_after(error_line);
             if let Some(state) = self.provider_states.get_mut(provider) {
                 state.is_rate_limited = true;
                 state.consecutive_429s += 1;
-                state.retry_after_seconds = self.parse_retry_after(error_line);
-                state.rate_limit_until = state.retry_after_seconds
+                state.retry_after_seconds = retry_after;
+                state.rate_limit_until = retry_after
                     .map(|s| Instant::now() + Duration::from_secs(s));
                 return Some(provider.to_string());
             }

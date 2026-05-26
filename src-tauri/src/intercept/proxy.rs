@@ -1,5 +1,5 @@
 use crate::intercept::blast_radius::BlastRadiusEngine;
-use crate::intercept::permission::PermissionSystem;
+use crate::intercept::permission::{PermissionDecision, PermissionSystem};
 use serde_json::Value;
 use std::collections::HashMap;
 use std::sync::Arc;
@@ -86,13 +86,6 @@ pub enum RiskLevel {
     Medium,
     High,
     Critical,
-}
-
-#[derive(Debug, Clone, Copy)]
-pub enum PermissionDecision {
-    Allow,
-    Deny(String),
-    Ask,
 }
 
 fn classify_tool(name: &str) -> &str {

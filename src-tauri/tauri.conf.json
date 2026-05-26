@@ -6,7 +6,7 @@
   "build": {
     "frontendDist": "../dist",
     "devUrl": "http://localhost:1420",
-    "beforeDevCommand": "pnpm dev",
+    "beforeDevCommand": "cmd /c D:\\OpenCode\\AgentLoft\\AgentLoft\\start-vite.bat",
     "beforeBuildCommand": "pnpm build"
   },
   "app": {
@@ -56,7 +56,7 @@
       "open": true
     },
     "fs": {
-      "scope": ["**"]
+      "requireLiteralLeadingDot": false
     }
   }
 }

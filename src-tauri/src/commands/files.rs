@@ -1,6 +1,7 @@
 use notify::{Event, RecursiveMode, Watcher, Config};
 use std::path::Path;
 use std::sync::mpsc;
+use tauri::Emitter;
 
 /// Start watching a project directory for file changes.
 /// Emits file change events to the Tauri frontend.

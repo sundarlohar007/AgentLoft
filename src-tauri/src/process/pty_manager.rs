@@ -82,15 +82,14 @@ impl PtyManager {
 
 pub struct PtyHandle {
     pub master: Box<dyn portable_pty::MasterPty + Send>,
-    pub child: Box<dyn portable_pty::Child + Send + std::fmt::Debug>,
+    pub child: Box<dyn portable_pty::Child + Send>,
 }
 
 impl PtyHandle {
-    pub fn write(&mut self, data: &[u8]) -> Result<(), String> {
-        self.master.write_all(data).map_err(|e| format!("PTY write error: {}", e))
-    }
-
     pub fn read(&mut self, buf: &mut [u8]) -> Result<usize, String> {
-        self.master.read(buf).map_err(|e| format!("PTY read error: {}", e))
+        let mut reader = self.master
+            .try_clone_reader()
+            .map_err(|e| format!("PTY read error: {}", e))?;
+        reader.read(buf).map_err(|e| format!("PTY read error: {}", e))
     }
 }

@@ -1,5 +1,5 @@
 use sqlx::sqlite::SqlitePoolOptions;
-use tauri::AppHandle;
+use tauri::{AppHandle, Manager};
 use std::path::PathBuf;
 
 pub async fn init_db(app_handle: &AppHandle) -> Result<sqlx::SqlitePool, Box<dyn std::error::Error>> {

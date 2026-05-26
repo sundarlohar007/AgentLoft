@@ -184,6 +184,7 @@ fn sanitize_filename(s: &str) -> String {
 fn dirs_next() -> Option<std::path::PathBuf> {
     std::env::var("HOME")
         .or_else(|_| std::env::var("USERPROFILE"))
+        .ok()
         .map(std::path::PathBuf::from)
 }
 

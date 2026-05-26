@@ -38,3 +38,18 @@ pub fn get_install_command(cli: &str) -> Option<&str> {
         _ => None,
     }
 }
+
+#[tauri::command]
+pub fn detect_installed_clis() -> Result<Vec<serde_json::Value>, String> {
+    let clis = ["claude", "codex", "antigravity", "node", "python", "docker"];
+    let results: Vec<serde_json::Value> = clis.iter().map(|name| {
+        let version = detect_cli(name);
+        serde_json::json!({
+            "name": name,
+            "installed": version.is_some(),
+            "version": version.unwrap_or_default(),
+            "install_command": get_install_command(name),
+        })
+    }).collect();
+    Ok(results)
+}

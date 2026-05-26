@@ -67,22 +67,26 @@ impl ContextBudgetManager {
         let usage_ratio = budget.used_tokens as f64 / budget.total_tokens as f64;
 
         if usage_ratio >= 0.95 {
+            let used = budget.used_tokens;
+            let total = budget.total_tokens;
             budget.warnings.push(format!(
                 "Context budget critical: {}/{} tokens ({}%)",
-                budget.used_tokens, budget.total_tokens,
+                used, total,
                 (usage_ratio * 100.0) as u32
             ));
             BudgetResult::Critical {
-                used: budget.used_tokens,
-                limit: budget.total_tokens,
+                used,
+                limit: total,
             }
         } else if usage_ratio >= 0.80 {
+            let used = budget.used_tokens;
+            let total = budget.total_tokens;
             budget.warnings.push(format!(
                 "Context budget warning: {}% used", (usage_ratio * 100.0) as u32
             ));
             BudgetResult::Warning {
-                used: budget.used_tokens,
-                limit: budget.total_tokens,
+                used,
+                limit: total,
             }
         } else {
             BudgetResult::Ok {

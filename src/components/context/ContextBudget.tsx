@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { useSettingsStore } from '../../stores/settingsStore';
+import { useState } from 'react';
 
 interface BudgetAllocations {
   system_prompt: number;
@@ -15,7 +14,7 @@ export default function ContextBudget() {
     files: 16000,
     conversation: 10000,
   });
-  const [usedTokens, setUsedTokens] = useState(0);
+  const [usedTokens] = useState(0);
   const totalLimit = 32000;
 
   const usagePercent = (usedTokens / totalLimit) * 100;

@@ -106,7 +106,8 @@ pub async fn install_mcp(
     args: Vec<String>,
     env: Option<HashMap<String, String>>,
 ) -> Result<McpStatus, String> {
-    let env_json = serde_json::to_string(&env.unwrap_or_default()).map_err(|e| e.to_string())?;
+    let env_clone = env.clone();
+    let env_json = serde_json::to_string(&env_clone.unwrap_or_default()).map_err(|e| e.to_string())?;
     let args_json = serde_json::to_string(&args).map_err(|e| e.to_string())?;
 
     sqlx::query(
@@ -159,12 +160,12 @@ pub async fn start_mcp(
     // This command marks the MCP as active for the UI health dashboard.
     Ok(McpStatus {
         id: mcp_id.clone(),
-        name: mcp_id,
+        name: mcp_id.clone(),
         connection: McpConnectionStatus::Starting,
         tool_count: 0,
         last_active_at: Some(chrono::Utc::now().to_rfc3339()),
         config: McpConfig {
-            id: mcp_id,
+            id: mcp_id.clone(),
             name: String::new(),
             command: String::new(),
             args: Vec::new(),
@@ -182,12 +183,12 @@ pub async fn stop_mcp(
 ) -> Result<McpStatus, String> {
     Ok(McpStatus {
         id: mcp_id.clone(),
-        name: mcp_id,
+        name: mcp_id.clone(),
         connection: McpConnectionStatus::Stopped,
         tool_count: 0,
         last_active_at: Some(chrono::Utc::now().to_rfc3339()),
         config: McpConfig {
-            id: mcp_id,
+            id: mcp_id.clone(),
             name: String::new(),
             command: String::new(),
             args: Vec::new(),
